@@ -21,58 +21,97 @@
 
     /* Navbar */
     .navbar {
-      display: flex;
-      position: sticky;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      background-color: #fff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      height: 70px;
+    display: flex;
+    position: sticky;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 70px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0a74da;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+.navbar-buttons {
+    background-color: white;
+    padding: 6px 6px;
+    border-radius: 25px;
+    border-width: 1px;
+    color: #064ea8;
+    border: solid rgb(211, 213, 233);
+    font-size: 15px;
+}
+
+.navbar-buttons:hover {
+    cursor: pointer;
+    background-color: #d4e1f0;
+}
+
+.sign-in {
+    text-decoration: none;
+    background-color: #0a74da;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 40px;
+    transition: background-color 0.3s ease;
+}
+
+.sign-in:hover {
+    background-color: #064ea8;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .navbar {
+        padding: 15px 30px; /* Adjust padding for medium screens */
     }
 
     .logo {
-      font-size: 28px;
-      font-weight: bold;
-      color: #0a74da;
+        font-size: 24px; /* Adjust logo size */
     }
 
     nav ul {
-      display: flex;
-      list-style: none;
+        display: none; /* Hide the nav links by default on smaller screens */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute; /* Position the dropdown */
+        top: 70px; /* Below the navbar */
+        right: 0; /* Align to the right */
+        background-color: #fff; /* White background */
+        width: 200px; /* Fixed width for dropdown */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+        z-index: 1000; /* Ensure dropdown is above other content */
+    }
+
+    nav ul.show {
+        display: flex; /* Show the nav links when activated */
     }
 
     nav ul li {
-      margin-left: 25px;
+        margin: 10px 0; /* Adjust margin for vertical stacking */
     }
 
     .navbar-buttons {
-      background-color: white;
-      padding: 6px 6px;
-      border-radius: 25px;
-      border-width: 1px;
-      color: #064ea8;
-      border: solid rgb(211, 213, 233);
-      font-size: 15px;
-    }
-
-    .navbar-buttons:hover {
-      cursor: pointer;
-      background-color: #d4e1f0;
+        font-size: 14px; /* Adjust button size for smaller screens */
     }
 
     .sign-in {
-      text-decoration: none;
-      background-color: #0a74da;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 40px;
-      transition: background-color 0.3s ease;
+        padding: 8px 15px; /* Adjust padding for sign-in button */
     }
-
-    .sign-in:hover {
-      background-color: #064ea8;
-    }
+}
 
     /* Hero Section */
     .hero {
@@ -89,7 +128,7 @@
       margin-left: 7%;
     }
 
-    .content h1 {
+    .find-the {
       font-size: 80px;
       font-family: Georgia, 'Times New Roman', Times, serif;
       color: #222;
@@ -97,7 +136,7 @@
       padding-right: 30%;
     }
 
-    .content p {
+    .search-your {
       font-size: 18px;
       color: #0f0e0e;
       margin-bottom: 30px;
@@ -278,25 +317,38 @@
 
     .category-box:hover {
       transform: translateY(-5px);
-      background-color: #0F2C67;
-      color: white;
+      background-color: #5B99C2;
+      color: white ;
     }
+  .category-box:hover .category-title,
+  .category-box:hover .open-positions {
+  color: white;
+   }
+
 
     .category-box img {
       width: 50px;
       height: 50px;
       margin-bottom: 20px;
     }
+    .category-box:hover img{
+      background-color: white;
+      border-radius: 8px;
+    }
 
     .category-title {
       font-size: 1.2rem;
       color: #343a40;
       margin-bottom: 5px;
+      transition: color 0.3s ease; /* Smooth transition for color */
+
     }
 
     .open-positions {
       font-size: 1rem;
       color: #6c757d;
+      transition: color 0.3s ease; /* Smooth transition for color */
+
 
     }
 
@@ -315,24 +367,24 @@ h1 {
     font-size: 50px;
     color: black;
     font-family: Roboto, sans-serif;
-    font-weight: 800;
+    font-weight: 700;
     padding-top: 40px;
+    text-align: center;
 }
 
 p {
     font-size: 18px;
     color: #666;
+    text-align: center;
 }
 
 .job-cards {
-  display: flex;
+    display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 10px;
     margin-left: 10%;
     margin-right: 10%;
-
-
 }
 
 .job-card {
@@ -389,12 +441,26 @@ h2 {
     color: #999;
 }
 
+
+.featured-cities{
+  font-size: 40px;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 40px;
+}
 .hover-grid {
     display: flex;
     height: 300px; 
+    margin-bottom: 100px;
 }
 
-.cards-hover-grid {
+ .cards-hover-grid1,
+ .cards-hover-grid2, 
+ .cards-hover-grid3, 
+ .cards-hover-grid4, 
+ .cards-hover-grid5 {
     flex: 1; 
     background-color: #6a5acd; 
     color: white;
@@ -407,13 +473,53 @@ h2 {
     transition: flex 0.3s ease;
     background-size:cover;
     background-position: center;
-    background-color: #0f0e0e;
+    border-radius: 20px;
+}
+.cards-hover-grid1{ 
+  background-image: url(https://images.unsplash.com/photo-1499462817897-fe42dfba9131?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D);
+}
+.cards-hover-grid2{ 
+  background-image: url(https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHViYWl8ZW58MHx8MHx8fDA%3D);
+}
+.cards-hover-grid3{ 
+  background-image: url(https://plus.unsplash.com/premium_photo-1661919589683-f11880119fb7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZGVsaGl8ZW58MHx8MHx8fDA%3D);
+}
+.cards-hover-grid4{ 
+  background-image: url(https://media.istockphoto.com/id/1054916766/photo/calm-water.jpg?s=612x612&w=0&k=20&c=sz1shtsZl5Bn90_E3qUJ_G3J8jxiRVa9cxWRauUiz1A=);
+}
+.cards-hover-grid5{ 
+  background-image: url(https://images.pexels.com/photos/28796447/pexels-photo-28796447/free-photo-of-iconic-mumbai-architecture-with-traffic-scene.jpeg?auto=compress&cs=tinysrgb&w=800);
 }
 
-.cards-hover-grid:hover {
+
+
+ .cards-hover-grid1:hover,
+ .cards-hover-grid2:hover, 
+ .cards-hover-grid3:hover, 
+ .cards-hover-grid4:hover, 
+ .cards-hover-grid5:hover{
     flex: 3; 
 }
 
+@media (max-width: 1200px) {
+    .job-card {
+        width: 30%; /* Larger width for smaller screens */
+    }
+}
+
+@media (max-width: 992px) {
+    .job-card {
+        width: 45%; /* Two columns on tablets */
+    }
+    
+    h1 {
+        font-size: 40px; /* Adjust heading size */
+    }
+
+    p {
+        font-size: 16px; /* Adjust paragraph size */
+    }
+}
 
     /* Responsive Styles */
     @media (max-width: 768px) {
@@ -461,6 +567,53 @@ h2 {
         flex: 0 0 45%;
 
     }
+    .job-card {
+        width: 100%; /* Stack the cards on top of each other */
+    }
+    
+    h1 {
+        font-size: 36px; /* Adjust heading size for mobile */
+    }
+
+    p {
+        font-size: 14px; /* Adjust paragraph size for mobile */
+    }
+
+    .job-cards {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    @media (max-width: 576px) {
+    h1 {
+        font-size: 30px; /* Further adjust for very small devices */
+    }
+
+    p {
+        font-size: 13px; /* Further adjust for very small devices */
+    }
+
+    .job-cards {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    .job-card {
+        padding: 15px; /* Smaller padding for very small devices */
+    }
+
+    h2 {
+        font-size: 20px; /* Smaller h2 size */
+    }
+
+    .location {
+        font-size: 14px; /* Smaller location text */
+    }
+
+    .date {
+        font-size: 12px; /* Smaller date text */
+    }
+}
 
     @media (max-width: 480px) {
       .navbar {
@@ -520,8 +673,8 @@ h2 {
   <!-- Hero Section -->
   <section class="hero">
     <div class="content">
-      <h1>Find the perfect job for you</h1>
-      <p>Search your career opportunity through 12,800 jobs</p>
+      <div class="find-the">Find the perfect job for you</div>
+      <div class="search-your">Search your career opportunity through 12,800 jobs</div>
 
       <!-- Search Bar -->
       <div class="search-container">
@@ -555,7 +708,7 @@ h2 {
 
     <!-- Image Section -->
     <div class="hero-image">
-      <img class="fly-image" src="3d-rendering-graduate-character-pose.png" alt="Job Search" />
+      <img class="fly-image" src="C:\Users\amans\Downloads\3d-rendering-graduate-character-pose.png" alt="Job Search" />
     </div>
   </section>
   <div class="container">
@@ -627,14 +780,16 @@ h2 {
         </div>
     </div>
 </div>
-
+<div class="cities"> 
+  
+<div class="featured-cities">Featured Cities</div>
 <div class="hover-grid">
-  <div class="cards-hover-grid">1</div>
-  <div class="cards-hover-grid">2</div>
-  <div class="cards-hover-grid">3</div>
-  <div class="cards-hover-grid">4</div>
-  <div class="cards-hover-grid">5</div>
+  <div class="cards-hover-grid1">New york City</div>
+  <div class="cards-hover-grid2">Dubai</div>
+  <div class="cards-hover-grid3">Delhi</div>
+  <div class="cards-hover-grid4">Chandigarh</div>
+  <div class="cards-hover-grid5">Mumbai</div>
 </div>
-
+</div>
 </body>
 </html>
