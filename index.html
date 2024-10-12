@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JobTrails 2.0</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: white;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      position: sticky;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      height: 70px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #0a74da;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 25px;
+    }
+
+    .navbar-buttons {
+      background-color: white;
+      padding: 6px 6px;
+      border-radius: 25px;
+      border-width: 1px;
+      color: #064ea8;
+      border: solid rgb(211, 213, 233);
+      font-size: 15px;
+    }
+
+    .navbar-buttons:hover {
+      cursor: pointer;
+      background-color: #d4e1f0;
+    }
+
+    .sign-in {
+      text-decoration: none;
+      background-color: #0a74da;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 40px;
+      transition: background-color 0.3s ease;
+    }
+
+    .sign-in:hover {
+      background-color: #064ea8;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgb(230, 240, 249)
+      ;
+    }
+
+    /* Content */
+    .content {
+      max-width: 50%;
+      margin-left: 7%;
+    }
+
+    .content h1 {
+      font-size: 80px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: #222;
+      margin-bottom: 20px;
+      padding-right: 30%;
+    }
+
+    .content p {
+      font-size: 18px;
+      color: #0f0e0e;
+      margin-bottom: 30px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    /* Image Section */
+    .hero-image {
+      max-width: 40%; /* Adjust this percentage as needed */
+      animation: float 3s ease-in-out infinite; /* Floating effect */
+    }
+
+    .hero-image img {
+      width: 100%; /* Make the image responsive */
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 10px; /* Optional: add border radius */
+    }
+
+    /* Floating animation */
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* Hover effect for shadow */
+    .fly-image{
+      transition: transform 0.2s ease;
+
+    }
+    .fly-image:hover {
+      transform: scale(1.05);
+    
+    }
+
+    /* Search Bar */
+    .search-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 10px;
+      border-radius: 50px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%; /* Full width on mobile */
+      max-width: 600px;
+    }
+
+    .search-container input {
+      border: none;
+      padding: 15px;
+      flex: 1;
+      font-size: 16px;
+      border-radius: 50px;
+      outline: none;
+    }
+
+    .search-container select {
+      background-color: white;
+      border: none;
+      padding: 15px;
+      font-size: 16px;
+      color: #333;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+    }
+
+    .search-container button {
+      background-color: #0a74da;
+      border: none;
+      color: white;
+      border-radius: 50%;
+      padding: 15px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .search-container button:hover {
+      background-color: #064ea8;
+    }
+
+    .search-container select {
+      appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .search-container select option {
+      padding: 10px;
+    }
+
+    .search-container button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-container button::before {
+      content: '\1F50D'; /* Unicode for magnifying glass */
+      font-size: 18px;
+    }
+
+    /* Popular Searches */
+    .popular-searches {
+      margin-top: 20px;
+    }
+
+    .popular-searches span {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .popular-searches div {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .post-name {
+      background-color: rgb(245, 246, 247);
+      color: rgb(9, 105, 195);
+      padding: 8px 12px;
+      border-radius: 30px;
+      font-size: 14px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .post-name:hover {
+      background-color: #0a74da;
+      color: #fff;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: black;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: black;
+      margin-bottom: 40px;
+    }
+
+    .category-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      overflow-x: auto;
+      padding: 10px 0;
+    }
+
+    .category-box {
+      flex: 0 0 18%;
+      background-color: rgb(230, 240, 249);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .category-box:hover {
+      transform: translateY(-5px);
+      background-color: #0F2C67;
+      color: white;
+    }
+
+    .category-box img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 20px;
+    }
+
+    .category-title {
+      font-size: 1.2rem;
+      color: #343a40;
+      margin-bottom: 5px;
+    }
+
+    .open-positions {
+      font-size: 1rem;
+      color: #6c757d;
+
+    }
+
+    .Job-offers {
+    margin: 40px auto;
+    background-color: rgb(255, 248, 236);
+    padding-bottom: 40px;
+}
+
+.job-offer-header {
+    margin-bottom: 40px;
+    margin-left: 10%;
+}
+
+h1 {
+    font-size: 50px;
+    color: black;
+    font-family: Roboto, sans-serif;
+    font-weight: 800;
+    padding-top: 40px;
+}
+
+p {
+    font-size: 18px;
+    color: #666;
+}
+
+.job-cards {
+  display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+
+
+}
+
+.job-card {
+    background-color: white;
+    border-radius: 35px;
+    padding: 20px;
+    width: 22%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-10px);
+}
+
+.job-type {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.job-type.finance {
+    color: #1d72b8;
+}
+
+.job-type.software {
+    color: #4169e1;
+}
+
+.job-type.hr {
+    color: #4caf50;
+}
+
+.job-type.business {
+    color: #ff8c00;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.location {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.date {
+    font-size: 14px;
+    color: #999;
+}
+
+.hover-grid {
+    display: flex;
+    height: 300px; 
+}
+
+.cards-hover-grid {
+    flex: 1; 
+    background-color: #6a5acd; 
+    color: white;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: flex 0.3s ease;
+    background-size:cover;
+    background-position: center;
+    background-color: #0f0e0e;
+}
+
+.cards-hover-grid:hover {
+    flex: 3; 
+}
+
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .navbar nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+      }
+
+      .content {
+        max-width: 100%;
+      }
+
+      .content h1 {
+        font-size: 40px;
+      }
+
+      .search-container {
+        width: 100%;
+        max-width: 450px; /* Reduced max width for tablets */
+        margin: 0 auto;
+      }
+
+      .search-container input,
+      .search-container select,
+      .search-container button {
+        margin-bottom: 10px;
+      }
+
+      .hero-image {
+        max-width: 100%; /* Full width for the image on mobile */
+        margin-top: 20px; /* Add margin on top for spacing */
+      }
+      .category-box {
+        flex: 0 0 45%;
+
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 10px;
+        
+      }
+
+      .content h1 {
+        font-size: 32px;
+        text-align: center;
+      }
+
+      .content p {
+        font-size: 16px;
+      }
+
+      .search-container {
+        padding: 10px;
+        width: 100%; /* Full width on mobile */
+        max-width: 350px; /* Reduced max width for mobile devices */
+      }
+
+      .search-container input,
+      .search-container select,
+      .search-container button {
+        font-size: 14px;
+      }
+
+      .post-name {
+        padding: 5px 10px;
+      }
+      .category-box {
+        flex: 0 0 90%;
+    }
+  }}
+
+  
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="navbar">
+      <div class="logo">JobTrails</div>
+      <nav>
+        <ul>
+          <li><button class="navbar-buttons">Find Jobs</button></li>
+          <li><button class="navbar-buttons">Companies</button></li>
+          <li><button class="navbar-buttons">Build Resume</button></li>
+          <li><button class="navbar-buttons">Vision</button></li>
+        </ul>
+      </nav>
+      <a href="#" class="sign-in">Sign in</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="content">
+      <h1>Find the perfect job for you</h1>
+      <p>Search your career opportunity through 12,800 jobs</p>
+
+      <!-- Search Bar -->
+      <div class="search-container">
+        <input type="text" placeholder="Job Title or Keyword">
+        <select>
+          <option class="icon-globe">All Locations</option>
+          <option class="icon-globe">Chandigarh</option>
+          <option class="icon-globe">Delhi</option>
+          <option class="icon-globe">Mumbai</option>
+          <option class="icon-globe">Gurgaon</option>
+          <option class="icon-globe">Noida</option>
+          <option class="icon-globe">Panchkula</option>
+        </select>
+        <button></button>
+      </div>
+
+      <!-- Popular Searches -->
+      <div class="popular-searches">
+        <span>Popular Searches:</span>
+        <div>
+          <button class="post-name">Designer</button>
+          <button class="post-name">Web Developer</button>
+          <button class="post-name">Team Leader</button>
+          <button class="post-name">Fullstack Developer</button>
+          <button class="post-name">Financial Analyst</button>
+          <button class="post-name">Senior Developer</button>
+          <button class="post-name">Writer</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Section -->
+    <div class="hero-image">
+      <img class="fly-image" src="C:\Users\amans\Downloads\3d-rendering-graduate-character-pose.png" alt="Job Search" />
+    </div>
+  </section>
+  <div class="container">
+    <h1>Search by Category</h1>
+    <p>Search your career opportunity with our categories</p>
+
+    <div class="category-container">
+      <div class="category-box">
+        <img src="https://img.icons8.com/ios-filled/50/000000/business.png" alt="Business Development">
+        <div class="category-title">Business Development</div>
+        <div class="open-positions">3 open positions</div>
+      </div>
+      <div class="category-box">
+        <img src="https://img.icons8.com/ios-filled/50/000000/worker-male.png" alt="Construction">
+        <div class="category-title">Construction</div>
+        <div class="open-positions">1 open position</div>
+      </div>
+      <div class="category-box">
+        <img src="https://img.icons8.com/ios-filled/50/000000/customer-support.png" alt="Customer Service">
+        <div class="category-title">Customer Service</div>
+        <div class="open-positions">1 open position</div>
+      </div>
+      <div class="category-box">
+        <img src="https://img.icons8.com/ios-filled/50/000000/combo-chart.png" alt="Finance">
+        <div class="category-title">Finance</div>
+        <div class="open-positions">1 open position</div>
+      </div>
+      <div class="category-box">
+        <img src="https://img.icons8.com/ios-filled/50/000000/stethoscope.png" alt="Healthcare">
+        <div class="category-title">Healthcare</div>
+        <div class="open-positions">1 open position</div>
+    </div>
+  </div>
+</div>
+
+  <div class="Job-offers">
+    <header class="job-offer-header">
+        <h1>Featured Job Offers</h1>
+        <p>Search your career opportunity through 12,800 jobs</p>
+    </header>
+    
+    <div class="job-cards">
+        <div class="job-card">
+            <div class="job-type finance">Finance</div>
+            <h2>Financial Analyst</h2>
+            <p class="location">📍 San Diego, CA | Full Time</p>
+            <p class="date">June 8, 2022 by <strong>Gramware</strong></p>
+        </div>
+        
+        <div class="job-card">
+            <div class="job-type software">Software Engineering</div>
+            <h2>Fullstack Web Developer</h2>
+            <p class="location">📍 San Francisco, CA | Internship</p>
+            <p class="date">June 8, 2022 by <strong>Sysprosoft</strong></p>
+        </div>
+        
+        <div class="job-card">
+            <div class="job-type hr">Human Resources</div>
+            <h2>Human Resources Coordinator</h2>
+            <p class="location">📍 San Diego, CA | Full Time</p>
+            <p class="date">June 8, 2022 by <strong>DataRes</strong></p>
+        </div>
+        
+        <div class="job-card">
+            <div class="job-type business">Business Development</div>
+            <h2>Technical Writer</h2>
+            <p class="location">📍 Los Angeles, CA | Remote</p>
+            <p class="date">June 7, 2022 by <strong>Craftgenics</strong></p>
+        </div>
+    </div>
+</div>
+
+<div class="hover-grid">
+  <div class="cards-hover-grid">1</div>
+  <div class="cards-hover-grid">2</div>
+  <div class="cards-hover-grid">3</div>
+  <div class="cards-hover-grid">4</div>
+  <div class="cards-hover-grid">5</div>
+</div>
+
+</body>
+</html>
