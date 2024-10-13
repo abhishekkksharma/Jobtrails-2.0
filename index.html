@@ -19,100 +19,84 @@
       line-height: 1.6;
     }
 
-    /* Navbar */
     .navbar {
-    display: flex;
-    position: sticky;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 60px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    height: 70px;
-}
-
-.logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: #0a74da;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 25px;
-}
-
-.navbar-buttons {
-    background-color: white;
-    padding: 6px 6px;
-    border-radius: 25px;
-    border-width: 1px;
-    color: #064ea8;
-    border: solid rgb(211, 213, 233);
-    font-size: 15px;
-}
-
-.navbar-buttons:hover {
-    cursor: pointer;
-    background-color: #d4e1f0;
-}
-
-.sign-in {
-    text-decoration: none;
-    background-color: #0a74da;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 40px;
-    transition: background-color 0.3s ease;
-}
-
-.sign-in:hover {
-    background-color: #064ea8;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 992px) {
-    .navbar {
-        padding: 15px 30px; /* Adjust padding for medium screens */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 10px 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky;
     }
 
-    .logo {
-        font-size: 24px; /* Adjust logo size */
+    .navbar .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #0060C1;
     }
 
-    nav ul {
-        display: none; /* Hide the nav links by default on smaller screens */
-        flex-direction: column; /* Stack links vertically */
-        position: absolute; /* Position the dropdown */
-        top: 70px; /* Below the navbar */
-        right: 0; /* Align to the right */
-        background-color: #fff; /* White background */
-        width: 200px; /* Fixed width for dropdown */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
-        z-index: 1000; /* Ensure dropdown is above other content */
+    .navbar .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 30px;
     }
 
-    nav ul.show {
-        display: flex; /* Show the nav links when activated */
+    .navbar .nav-links a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
     }
 
-    nav ul li {
-        margin: 10px 0; /* Adjust margin for vertical stacking */
+    .navbar .nav-links a:hover {
+        text-decoration: underline;
     }
 
-    .navbar-buttons {
-        font-size: 14px; /* Adjust button size for smaller screens */
+    .search-bar {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        padding: 5px 10px;
+        background-color: #f9f9f9;
+        flex: 1;
+        max-width: 300px;
+        margin-left: 20px;
     }
 
-    .sign-in {
-        padding: 8px 15px; /* Adjust padding for sign-in button */
+    .search-bar input {
+        border: none;
+        outline: none;
+        padding: 8px 12px;
+        border-radius: 20px;
+        background-color: transparent;
+        font-size: 14px;
+        flex: 1;
     }
-}
 
+    .search-bar button {
+        background-color: #0060C1;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .auth-buttons a {
+        text-decoration: none;
+        color: #0060C1;
+        font-weight: 500;
+        padding: 5px 10px;
+        border: 1px solid #0060C1;
+        border-radius: 20px;
+        transition: all 0.3s;
+    }
+
+    .auth-buttons a:hover {
+        background-color: #0060C1;
+        color: white;
+    }
     /* Hero Section */
     .hero {
       display: flex;
@@ -131,9 +115,8 @@ nav ul li {
     .find-the {
       font-size: 80px;
       font-family: Georgia, 'Times New Roman', Times, serif;
-      color: #222;
+      color: black;
       margin-bottom: 20px;
-      padding-right: 30%;
     }
 
     .search-your {
@@ -313,6 +296,7 @@ nav ul li {
       margin: 10px;
       text-align: center;
       transition: transform 0.3s ease;
+      height: 200px;
     }
 
     .category-box:hover {
@@ -406,39 +390,52 @@ p {
     letter-spacing: 1px;
     margin-bottom: 10px;
     font-weight: bold;
+    text-align: left;
 }
 
 .job-type.finance {
     color: #1d72b8;
+    font-size: larger;
 }
 
 .job-type.software {
     color: #4169e1;
+    font-size: larger;
+
 }
 
 .job-type.hr {
     color: #4caf50;
+    font-size: larger;
+
 }
 
 .job-type.business {
     color: #ff8c00;
+    font-size: larger;
+
 }
 
 h2 {
     font-size: 24px;
     margin-bottom: 10px;
     color: #333;
+    text-align: left;
 }
 
 .location {
     font-size: 16px;
     margin-bottom: 20px;
     color: #555;
+    text-align: left;
+
 }
 
 .date {
     font-size: 14px;
     color: #999;
+    text-align: left;
+
 }
 
 
@@ -524,20 +521,24 @@ h2 {
     /* Responsive Styles */
     @media (max-width: 768px) {
       .navbar {
-        flex-direction: column;
-        padding: 20px;
-      }
+                flex-direction: column;
+                gap: 15px;
+            }
 
-      .navbar nav ul {
-        flex-direction: column;
-        align-items: center;
-      }
 
       .hero {
         flex-direction: column;
         text-align: center;
         padding: 30px;
       }
+      .find-the {
+      font-size: 50px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: black;
+      font-weight: 500;
+      text-align: center;
+    }
+
 
       .content {
         max-width: 100%;
@@ -580,9 +581,16 @@ h2 {
     }
 
     .job-cards {
-        margin-left: 5%;
-        margin-right: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+    .hover-grid{
+      height: 200px; 
     }
+
 
     @media (max-width: 576px) {
     h1 {
@@ -598,9 +606,14 @@ h2 {
         margin-right: 2%;
     }
 
-    .job-card {
-        padding: 15px; /* Smaller padding for very small devices */
-    }
+    .job-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
 
     h2 {
         font-size: 20px; /* Smaller h2 size */
@@ -616,10 +629,23 @@ h2 {
 }
 
     @media (max-width: 480px) {
-      .navbar {
-        padding: 10px;
-        
-      }
+    .navbar {
+    flex-direction: column;
+    padding: 10px;
+    }    
+    .find-the {
+      font-size: 30px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: black;
+      text-align: center;
+    }
+    .search-your {
+      font-size: 14px;
+      color: #0f0e0e;
+      margin-bottom: 20px;
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
 
       .content h1 {
         font-size: 32px;
@@ -648,7 +674,42 @@ h2 {
       .category-box {
         flex: 0 0 90%;
     }
-  }}
+    h1 {
+    font-size: 30px;
+    color: black;
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    padding-top: 40px;
+    text-align: center;
+}
+
+    .featured-cities{
+  font-size: 20px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.job-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+    .hover-grid{
+      height: 80px; 
+    }
+    .cards-hover-grid1,
+    .cards-hover-grid2, 
+    .cards-hover-grid3, 
+    .cards-hover-grid4, 
+    .cards-hover-grid5 {
+      font-size: 10px;
+      margin: 1px;
+    }}}
 
   
   </style>
@@ -658,17 +719,15 @@ h2 {
   <header>
     <div class="navbar">
       <div class="logo">JobTrails</div>
-      <nav>
-        <ul>
-          <li><button class="navbar-buttons">Find Jobs</button></li>
-          <li><button class="navbar-buttons">Companies</button></li>
-          <li><button class="navbar-buttons">Build Resume</button></li>
-          <li><button class="navbar-buttons">Vision</button></li>
-        </ul>
-      </nav>
-      <a href="#" class="sign-in">Sign in</a>
-    </div>
-  </header>
+      <div class="nav-links">
+          <a href="index.html">Jobs</a>
+          <a href="companies.html">Vision</a>
+          <a href="services.html">Build Resume</a>
+      </div>
+      <div class="auth-buttons">
+          <a href="login.html">Sign Up</a>
+      </div>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -708,7 +767,7 @@ h2 {
 
     <!-- Image Section -->
     <div class="hero-image">
-      <img class="fly-image" src="3d-rendering-graduate-character-pose.png" alt="Job Search" />
+      <img class="fly-image" src="3d-rendering-graduate-character-pose.png" />
     </div>
   </section>
   <div class="container">
