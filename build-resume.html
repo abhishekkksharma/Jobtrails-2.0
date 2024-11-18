@@ -15,18 +15,19 @@
       /* Centering the entire page content */
       body {
         min-height: 100vh;
-        background-image: url(https://img.freepik.com/free-vector/file-transfer-concept-illustration_114360-531.jpg?t=st=1730128520~exp=1730132120~hmac=12d849c06079d99441a9f0aeed1da2c0a933a119aafbf5ff4a05338440bcd207&w=1380);
+        background-image: url('https://img.freepik.com/free-vector/file-transfer-concept-illustration_114360-531.jpg');
         background-position: top;
-        background-size: 300px;
+        background-size: 250px;
         background-repeat: no-repeat;
         font-family: Arial, sans-serif;
-        background-attachment:fixed;
+        background-attachment: fixed;
       }
+
       h1 {
         text-align: center;
-        margin: 100px;
+        margin: 80px;
         color: black;
-        margin-top: 280px;
+        margin-top: 230px;
         margin-bottom: 0px;
       }
 
@@ -38,7 +39,6 @@
         margin-top: 0px;
         flex-wrap: wrap; /* Allows wrapping for responsiveness */
         padding-top: 50px;
-
       }
 
       /* Individual resume box with background */
@@ -47,7 +47,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        align-items: center;
+        position: relative;
         padding: 15px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -57,14 +57,14 @@
 
       /* Hover effect for resume boxes */
       .resume-box:hover {
-        transform: scale(1.3); /* Slight zoom on hover */
-        background-color: #608BC1;
+        transform: scale(1.2); /* Slight zoom on hover */
+        background-color: #608bc1;
       }
 
       /* Styling the images */
       .resume-box img {
         width: 100%;
-        margin: 0px 10px;
+        margin-bottom: 15px;
         object-fit: cover;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -78,7 +78,6 @@
 
       /* Resume type button */
       .resume-box button {
-        margin-top: 10px;
         padding: 10px 20px;
         background-color: #007bff;
         color: white;
@@ -87,12 +86,31 @@
         cursor: pointer;
         font-size: 16px;
         transition: background-color 0.3s ease;
-        align-self: center; /* Centers the button horizontally */
+        margin-top: 10px;
       }
 
       /* Button hover effect */
       .resume-box button:hover {
         background-color: #0056b3;
+      }
+
+      /* Download Button positioned in bottom-right corner */
+      .download-btn {
+        position: absolute;
+        bottom: 90px;
+        right: 20px;
+        font-size: 12px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 5px;
+        text-decoration: none;
+        text-align: center;
+        display: block;
+      }
+
+      .download-btn i {
+        margin-right: 5px;
       }
 
       /* Responsive layout: stack resume boxes vertically on smaller screens */
@@ -102,9 +120,10 @@
           align-items: center;
           gap: 20px;
         }
-        h1{
-            font-size: 30px;
-            margin: 40px 0px;
+
+        h1 {
+          font-size: 30px;
+          margin: 40px 0px;
         }
       }
     </style>
@@ -114,23 +133,29 @@
     <div class="resume-selector">
       <!-- Resume 1 -->
       <div class="resume-box">
-        <img src="Screenshot 2024-10-24 193824.png"alt="Resume 1"/>
+        <img src="Screenshot%202024-10-24%20193824.png" alt="Resume 1" />
         <button onclick="window.location.href='https://www.canva.com/design/DAGUfl0Ke1k/EYq6jIAHnJbG60WIlNnopQ/edit'">Edit</button>
+        <a href="file:///C:/Users/amans/OneDrive/Pictures/Screenshots/Screenshot%202024-10-24%20193824.png" download class="download-btn">
+        Download
+        </a>
       </div>
 
       <!-- Resume 2 -->
       <div class="resume-box">
-        <img src="Screenshot 2024-10-24 193758.png"alt="Resume 2"/>
+        <img src="Screenshot%202024-10-24%20193758.png" alt="Resume 2" />
         <button onclick="window.location.href='https://www.canva.com/design/DAGUfpcokY8/fL-fGBEVrXFLJzJgG2OsXA/edit'">Edit</button>
+        <a href="file:///C:/Users/amans/OneDrive/Pictures/Screenshots/Screenshot%202024-10-24%20193758.png" download class="download-btn">
+        Download
+        </a>
       </div>
 
       <!-- Resume 3 -->
       <div class="resume-box">
-        <img
-          src="Screenshot 2024-10-24 193723.png"
-          alt="Resume 3"
-        />
+        <img src="Screenshot%202024-10-24%20193723.png" alt="Resume 3" />
         <button onclick="window.location.href='https://www.canva.com/design/DAGUfozN3D0/ZxhRtOFeCPoku8RbfSGUCQ/edit'">Edit</button>
+        <a href="file:///C:/Users/amans/OneDrive/Pictures/Screenshots/Screenshot%202024-10-24%20193723.png" download class="download-btn">
+        Download
+        </a>
       </div>
     </div>
   </body>
