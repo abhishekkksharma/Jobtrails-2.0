@@ -24,37 +24,67 @@
     }
 
     .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #ffffff;
-        padding: 10px 20px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        position: sticky;
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+}
 
-    .navbar .logo {
-        font-size: 24px;
-        font-weight: bold;
-        color: #007bff;
-    }
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
 
-    .navbar .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-    }
+.navbar .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
 
-    .navbar .nav-links a {
-        color: #333;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 16px;
-    }
+.navbar .nav-links a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+}
 
-    .navbar .nav-links a:hover {
-        text-decoration: underline;
-    }
+.navbar .nav-links a:hover {
+    text-decoration: underline;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between the Sign Up link and the circular button */
+}
+
+.auth-buttons a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.circle-button {
+    width: 40px; /* Size of the button */
+    height: 40px; /* Size of the button */
+    border-radius: 50%; /* Makes it circular */
+    overflow: hidden; /* Ensures the image stays within the circle */
+    border: 2px solid white; /* Optional: add a border around the button */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* Background color of the button */
+}
+
+.circle-button img {
+    width: 100%; /* Ensure the image covers the button */
+    height: 100%; /* Ensure the image covers the button */
+    object-fit: cover; /* Ensures the image is centered and fills the circle */
+}
 
     .search-bar {
         display: flex;
@@ -975,11 +1005,15 @@ font-size: 14px;
           <a href="resource.html">Resources</a>
           <a href="#support">Support</a>
           <a href="build-resume.html" target="_blank">CV</a>
-        </div>
+      </div>
       <div class="auth-buttons">
-        <a href="login.html">Sign Up</a>
-    </div>
-</div>
+          <a href="login.html">Sign Up</a>
+          <!-- Circular Button with Image -->
+          <a href="Darktheme.html" class="circle-button">
+              <img src="https://cdn-icons-png.freepik.com/256/9221/9221506.png?ga=GA1.1.429765067.1726477102&semt=ais_hybrid" alt="Profile" />
+          </a>
+      </div>
+  </div>
 
   <section class="hero">
     <div class="content">
