@@ -911,7 +911,57 @@ font-size: 14px;
         margin-right: 16%;
 
     }
-}}
+    .suggestions-box {
+        width: 55%; /* Ensure it fits the mobile screen width */
+        height: fit-content;
+        border-radius: 10px;
+
+    }
+    .suggestion-item{
+      padding: 0px;
+      font-size: 12px;
+
+    }
+
+    }}
+
+/* Make sure the search container is relative */
+.search-container {
+    position: relative;
+    width: 100%; /* Ensure it's full width */
+}
+
+/* Suggestions box styles */
+.suggestions-box {
+    position: absolute;
+    top: 100%; /* Position below the search input */
+    left: 0;
+    width: 60%; /* Match the width of the input */
+    max-height: fit-content;
+    overflow-y: auto;
+    border: 1px solid #636363;
+    border-top: 0.5px solid #686868 ;
+    background-color: white;
+    display: none; /* Initially hidden */
+    z-index: 10;
+    border-radius: 20px;
+    margin-left: 4%;
+}
+
+/* Each suggestion item */
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 0.1px solid #cdcbcb;
+
+
+}
+
+/* Hover effect for suggestions */
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+
 
   </style>
 </head>
@@ -937,19 +987,82 @@ font-size: 14px;
       <div class="search-your">Search your career opportunity through 12,800 jobs</div>
 
       <div class="search-container">
-        <input type="text" placeholder="Job Title or Keyword">
+        <!-- Add the id="job-search" here -->
+        <input type="text" id="job-search" placeholder="Job Title or Keyword">
+        
         <select>
-          <option class="icon-globe">All Locations</option>
-          <option class="icon-globe">Chandigarh</option>
-          <option class="icon-globe">Delhi</option>
-          <option class="icon-globe">Mumbai</option>
-          <option class="icon-globe">Gurgaon</option>
-          <option class="icon-globe">Noida</option>
-          <option class="icon-globe">Panchkula</option>
+            <option class="icon-globe">All Locations</option>
+            <option class="icon-globe">Chandigarh</option>
+            <option class="icon-globe">Delhi</option>
+            <option class="icon-globe">Mumbai</option>
+            <option class="icon-globe">Gurgaon</option>
+            <option class="icon-globe">Noida</option>
+            <option class="icon-globe">Panchkula</option>
         </select>
         <button></button>
-      </div>
-
+    
+        <!-- Suggestions box -->
+        <div id="suggestions-box" class="suggestions-box"></div>
+    </div>
+    
+    <script>
+        // Attach input event listener to the job search input
+        document.getElementById('job-search').addEventListener('input', function () {
+            let query = this.value;
+            if (query.length > 1) {
+                getSuggestions(query); // Trigger suggestions if query length is greater than 2
+            } else {
+                document.getElementById('suggestions-box').style.display = 'none'; // Hide suggestions if query is too short
+            }
+        });
+    
+        // Static list of job titles for demonstration
+        function getSuggestions(query) {
+            const jobTitles = [
+            "Software Engineer","Fullstack Developer", "Web Developer", "Designer", "Project Manager", "Data Scientist", "Marketing Manager", 
+            "Business Analyst","Financial Analyst", "Product Manager", "Human Resources", "Content Writer", "Frontend Developer","Backend Developer", 
+            "UI/UX Designer", "DevOps Engineer", "Cloud Architect", "Mobile App Developer", "QA Engineer", "Digital Marketing Manager", 
+            "SEO Specialist", "Social Media Manager", "Brand Manager", "Sales Representative", "Account Manager", "Graphic Designer", 
+            "Video Editor", "Creative Director", "Copywriter", "Registered Nurse", "Pharmacist", "Lab Technician", "Accountant", 
+            "Financial Planner", "Auditor", "HR Manager", "Recruitment Specialist", "Office Manager", "Executive Assistant", 
+            "Operations Manager", "Teacher", "Training Specialist", "Lawyer", "Paralegal", "Compliance Officer", "Sales Executive", 
+            "Customer Service Representative", "Supply Chain Manager", "Logistics Coordinator", "Hotel Manager", "Restaurant Manager", 
+            "Travel Consultant", "Real Estate Agent", "Property Manager", "Mechanical Engineer", "Civil Engineer", "Electrical Engineer","Team Leader",
+            "Doctor"
+            ];
+    
+            const filteredSuggestions = jobTitles.filter(item => item.toLowerCase().includes(query.toLowerCase()));
+    
+            // Display the filtered suggestions
+            showSuggestions(filteredSuggestions);
+        }
+    
+        function showSuggestions(suggestions) {
+            const suggestionsBox = document.getElementById('suggestions-box');
+            suggestionsBox.innerHTML = ''; // Clear previous suggestions
+    
+            if (suggestions.length > 0) {
+                suggestionsBox.style.display = 'block'; // Show the suggestions box if there are results
+    
+                suggestions.forEach(suggestion => {
+                    const div = document.createElement('div');
+                    div.classList.add('suggestion-item');
+                    div.textContent = suggestion;
+    
+                    div.addEventListener('click', function () {
+                        // Set the input value to the clicked suggestion
+                        document.getElementById('job-search').value = suggestion;
+                        suggestionsBox.style.display = 'none'; // Hide the suggestions box after selection
+                    });
+    
+                    suggestionsBox.appendChild(div);
+                });
+            } else {
+                suggestionsBox.style.display = 'none'; // Hide the box if no suggestions
+            }
+        }
+    </script>
+    
       <div class="popular-searches">
         <span>Popular Searches:</span>
         <div>
@@ -1001,7 +1114,7 @@ font-size: 14px;
   </div>
 </div>
 
-  <div class="Job-offers" id="jobs" onclick="window.location.href='login.html'">
+  <div class="Job-offers" id="jobs">
     <header class="job-offer-header">
         <h1>Featured Job Offers</h1>
         <p>Search your career opportunity through 12,800 jobs</p>
@@ -1052,7 +1165,7 @@ font-size: 14px;
 
 <section class="testimonials-section">
   <h1>What Says Job Seekers About Us</h1>
-  <p class="sub-heading">JobZone Is Give Great Opportunity Platform For Find Jobs And All People Achieve Success</p>
+  <p class="sub-heading">JobTrails Is Giving Great Opportunity Platform For Find Jobs And All People Achieve Success</p>
   
   <div class="testimonials-container">
       <div class="testimonial-box">
@@ -1083,7 +1196,7 @@ font-size: 14px;
     <div class="container-footer">
         <section class="newsletter">
             <h2>Explore Your Potential</h2>
-            <p>Find the best job beacause you are the best!Enter Your Emaail and coonect with us
+            <p>Find the best job beacause you are the best!Enter Your Email and coonect with us
             </p>
             <form class="email-form">
                 <input type="email" placeholder="Enter your email here*" required>
@@ -1104,8 +1217,8 @@ font-size: 14px;
             <div class="footer-section help">
                 <h3>HELP</h3>
                 <ul>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#" id="support">Email us at: support@jobtrails.co.in</a></li>
+                    <li><a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSHvbJLwXGwrxPwvGTqPQfqqmXNFXfLrQMLJMcRkJsfksQdNzWrmWvQCqLRpVvZKPbVxcRxF"  target="_blank">Contact</a></li>
+                    <li><a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSHvbJLwXGwrxPwvGTqPQfqqmXNFXfLrQMLJMcRkJsfksQdNzWrmWvQCqLRpVvZKPbVxcRxF"  target="_blank" id="support">Email us at: support@jobtrails.co.in</a></li>
                 </ul>
             </div>
 
