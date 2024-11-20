@@ -5,7 +5,7 @@ JobTrails – Job Search Platform
 Developers:
 Abhishek Sharma - [LinkdIn Profile](www.linkedin.com/in/abhishek-sharma-16a8071b7)
 
-Aman Sing- [LinkdIn Profile](www.linkedin.com/in/aman-singh-96115a335)
+Aman Singh- [LinkdIn Profile](www.linkedin.com/in/aman-singh-96115a335)
 
 In Partial Fulfillment for the Award of the Degree of
 Bachelor of Engineering in Computer Science Engineering (CSE)
