@@ -7,11 +7,6 @@ Abhishek Sharma - [LinkdIn Profile](www.linkedin.com/in/abhishek-sharma-16a8071b
 
 Aman Singh- [LinkdIn Profile](www.linkedin.com/in/aman-singh-96115a335)
 
-In Partial Fulfillment for the Award of the Degree of
-Bachelor of Engineering in Computer Science Engineering (CSE)
-
-Chitkara University, Rajpura, Punjab
-November 2024
 
 Abstract
 The JobTrails project is a front-end development initiative created by first-year B.Tech CSE students to demonstrate their skills in building a responsive, user-friendly job search platform. Using HTML, CSS, and JavaScript, JobTrails focuses on providing job seekers with a seamless, mobile-friendly interface for browsing job listings. It features dynamic filters for location, job type, and other criteria, ensuring a smooth user experience across all devices.
