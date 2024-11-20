@@ -21,18 +21,20 @@ The primary objectives of the JobTrails project include:
 - **Intuitive Interface:**  
   A clean, responsive design that adjusts to different devices, ensuring accessibility on desktops, tablets, and smartphones.
 
-- **Filtering Options:**  
-  Advanced filtering features to refine job searches based on location, job type, and other factors.
-
 - **User-Centric Design:**  
   Emphasis on usability to enhance job search efficiency.
+  
+- **Typography:**
+  The fonts have been kept very Simple and professional considering the needs of the webpage.
+
+  
 
 ---
 
 **Technologies Used**  
 - **HTML:** Provides the structural framework for the platform.
 - **CSS:** Styles the interface using Flexbox and Grid Layout to ensure responsiveness.
-- **JavaScript:** Handles real-time job search functionality, dynamically updating results based on user input.
+- **JavaScript:** To add Search job Roles by category, the user get suggestions while typing in the search section.
 - **GitHub Pages:** Used for hosting and version control.
 
 ---
