@@ -4,9 +4,9 @@
 
 **Developers:**  
 
-Abhishek Sharma:[LindIn](https://www.linkedin.com/in/abhishek-sharma-16a8071b7/)
+Abhishek Sharma:[LinkedIn](https://www.linkedin.com/in/abhishek-sharma-16a8071b7/)
 
-Aman Singh:[LikdIn](https://www.linkedin.com/in/aman-singh-96115a335/)  
+Aman Singh:[LinkedIn](https://www.linkedin.com/in/aman-singh-96115a335/)  
 
 ---
 
