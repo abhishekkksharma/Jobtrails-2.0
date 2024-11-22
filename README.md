@@ -3,8 +3,9 @@
 **JobTrails – Job Search Platform**
 
 **Developers:**  
-Abhishek Sharma - [LinkedIn](www.linkedin.com/in/abhishek-sharma-16a8071b7)  
-Aman Singh - [LinkedIn](https://www.linkedin.com/in/aman-singh-96115a335/)
+
+Abhishek Sharma:[LindIn](https://www.linkedin.com/in/abhishek-sharma-16a8071b7/)
+Aman Singh:[LikdIn](https://www.linkedin.com/in/aman-singh-96115a335/)  
 
 ---
 
